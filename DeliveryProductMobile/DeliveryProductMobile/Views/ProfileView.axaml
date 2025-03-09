@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+			 xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+			 mc:Ignorable="d" 
+			 d:DesignWidth="540" 
+			 d:DesignHeight="1200"
+             x:Class="DeliveryProductMobile.ProfileView">
+	<StackPanel>
+		<StackPanel Orientation="Horizontal" Background="#db2323">
+			<Border CornerRadius="90" Background="WhiteSmoke" Padding="10" Margin="15">
+				<materialIcons:MaterialIcon Kind="User" Height="52" Width="52" Foreground="#db2323"/>
+			</Border>
+			<StackPanel VerticalAlignment="Center" TextElement.Foreground="WhiteSmoke">
+				<TextBlock x:Name="TextBlockLogin" Text="#mylogin" FontSize="18" FontWeight="Bold"/>
+				<TextBlock x:Name="TextBlockEmail" Text="myemail@gmail.com" />
+				<TextBlock x:Name="TextBlockDate" Text="Зарегистрирован с 21.02.2025" />
+			</StackPanel>
+		</StackPanel>
+
+		<Button Click="Button_Click_2" Background="Transparent" HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
+			<StackPanel Orientation="Horizontal" Margin="0, 10">
+				<materialIcons:MaterialIcon Kind="UserEdit" Height="42" Width="42"/>
+				<TextBlock Text="Личный кабинет" VerticalAlignment="Center" FontSize="18" Margin="10, 0"/>
+			</StackPanel>
+		</Button>
+		<Button x:Name="ButtonOrders" Click="Button_Click" Background="Transparent" HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
+			<StackPanel Orientation="Horizontal" Margin="0, 10">
+				<materialIcons:MaterialIcon Kind="DeliveryDining" Height="42" Width="42"/>
+				<TextBlock Text="Заказы" VerticalAlignment="Center" FontSize="18" Margin="10, 0"/>
+			</StackPanel>
+		</Button>
+		<Button Background="Transparent" Click="Button_Click_1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
+			<StackPanel Orientation="Horizontal" Margin="0, 10">
+				<materialIcons:MaterialIcon Kind="SignOut" Height="42" Width="42"/>
+				<TextBlock Text="Выйти" VerticalAlignment="Center" FontSize="18" Margin="10, 0"/>
+			</StackPanel>
+		</Button>
+	</StackPanel>
+</UserControl>

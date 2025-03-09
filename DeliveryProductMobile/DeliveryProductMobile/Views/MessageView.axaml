@@ -1,0 +1,11 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="DeliveryProductMobile.MessageView"
+        Title="MessageView">
+	<Border Background="White" Padding="20" Width="300" Height="150">
+		<StackPanel Spacing="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+			<TextBlock Name="MessageText" Text="Сообщение"/>
+			<Button Content="OK" Click="CloseDialog"/>
+		</StackPanel>
+	</Border>
+</Window>

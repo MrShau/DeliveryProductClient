@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+	  <UseMaui>true</UseMaui>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" />
+    <PackageReference Include="Avalonia.Themes.Fluent" />
+    <PackageReference Include="Avalonia.Fonts.Inter" />
+
+	  <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Include="Avalonia.Diagnostics">
+      <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+      <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+    <PackageReference Include="Material.Avalonia" />
+    <PackageReference Include="Material.Avalonia.Dialogs" />
+    <PackageReference Include="Material.Icons.Avalonia" />
+    <PackageReference Include="MessageBox.Avalonia" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Connections.Client" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="Nito.AsyncEx" />
+    <PackageReference Include="ReactiveUI" />
+    <PackageReference Include="System.Reactive" />
+    <PackageReference Include="Xamarin.Essentials" />
+  </ItemGroup>
+</Project>

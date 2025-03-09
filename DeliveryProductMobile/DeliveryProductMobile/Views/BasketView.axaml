@@ -1,0 +1,89 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DeliveryProductMobile.ViewModels;assembly=DeliveryProductMobile"
+			 d:DesignWidth="540" d:DesignHeight="1200"
+			 mc:Ignorable="d"
+			 Loaded="UserControl_Loaded_1"
+			 x:DataType="vm:BasketViewModel"
+             x:Class="DeliveryProductMobile.BasketView">
+	<Grid RowDefinitions="*, 100">
+		<ScrollViewer VerticalScrollBarVisibility="Auto">
+			<StackPanel Orientation="Vertical">
+
+				<!-- Информация о доставке -->
+				<TextBlock Text="Корзина" FontSize="20" HorizontalAlignment="Center" Margin="20" />
+				<ScrollViewer VerticalScrollBarVisibility="Auto">
+					<ItemsControl ItemsSource="{Binding Basket}">
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<Border Background="#FFFFFF" CornerRadius="8" Padding="0" Margin="5" >
+									<Grid>
+										<StackPanel Orientation="Horizontal">
+											<Image Source="{Binding Product.Image}" Width="50" Height="50" Stretch="UniformToFill"/>
+											<StackPanel Margin="10">
+												<TextBlock Text="{Binding Product.Title}" FontSize="16" FontWeight="Bold"/>
+												<TextBlock FontSize="14">
+													<Run  Text="{Binding Product.Weight} "/>
+													<Run  Text="{Binding Product.WeightUnit}"/>
+												</TextBlock>
+												<TextBlock FontSize="14">
+													<Run  Text="{Binding Product.Price} "/>
+													<Run  Text=" ₽"/>
+												</TextBlock>
+											</StackPanel>
+										</StackPanel>
+
+										<StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="5">
+											<Button
+								Command="{Binding $parent[ItemsControl].((vm:BasketViewModel)DataContext).MinusCount}"
+												CommandParameter="{Binding}"
+												Width="32" Height="32"
+												Padding="0" Content="-"
+												Foreground="WhiteSmoke"/>
+											<TextBlock FontSize="16" VerticalAlignment="Center">
+												<Run Text="{Binding Count} "/>
+
+											</TextBlock>
+											<Button
+								Command="{Binding $parent[ItemsControl].((vm:BasketViewModel)DataContext).AddCount}"
+												CommandParameter="{Binding}"
+												Width="32" Height="32"
+												Padding="0" Content="+" Foreground="WhiteSmoke"/>
+										</StackPanel>
+									</Grid>
+								</Border>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+
+				</ScrollViewer>
+
+
+				<StackPanel Grid.Row="1">
+					<Border Background="#EEEEEE" CornerRadius="8" Padding="10">
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+							<TextBlock Text="Итого:" FontSize="18" FontWeight="Bold"/>
+							<TextBlock Text="{Binding TotalPrice}" FontSize="18"/>
+							<TextBlock Text="₽" FontSize="18"/>
+						</StackPanel>
+					</Border>
+
+					<Border Background="#F5F5F5" CornerRadius="8" Padding="10">
+						<StackPanel>
+							<TextBlock Text="Доставка" FontSize="18" FontWeight="Bold"/>
+							<TextBlock x:Name="TextBlockDeliveryPrice" Text="Стоимость: " FontSize="14"/>
+							<TextBlock x:Name="TextBlockDeliveryTime" Text="Длительность: " FontSize="14"/>
+						</StackPanel>
+					</Border>
+				</StackPanel>
+
+
+			</StackPanel>
+		</ScrollViewer>
+
+		<Button x:Name="ButtonCreateOrder" Click="Button_Click" Content="Оформить заказ" Grid.Row="1" Height="64" VerticalAlignment="Bottom" CornerRadius="0" Margin="20" Foreground="WhiteSmoke"/>
+	</Grid>
+
+</UserControl>

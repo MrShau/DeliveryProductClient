@@ -15,7 +15,7 @@ public partial class ProfileView : UserControl
 
         TextBlockLogin.Text = UserSession.User?.Login ?? "null";
         TextBlockEmail.Text = UserSession.User?.Email ?? "null";
-        TextBlockDate.Text = $"Зарегистрирован с: {UserSession.User?.CreatedAtString}";
+        TextBlockDate.Text = $"Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ СЃ: {UserSession.User?.CreatedAtString}";
     }
 
     private async void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
